@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin: 0 0 10px;
+            color: #007bff;
+        }
+        video {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+        }
+        .upload-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .upload-link:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Video List</h1>
+        <ul>
+            {% for video in videos %}
+                <li>
+                    <h2>Video {{ video.id }}</h2>
+                    <video controls>
+                        <source src="{{ video.s3_url }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>{{ video.subtitles }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'upload_video' %}" class="upload-link">Upload New Video</a>
+    </div>
+</body>
+</html>

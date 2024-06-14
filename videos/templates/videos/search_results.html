@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results for "{{ keyword }}"</h1>
+    <ul>
+        {% for item in items %}
+        <li>Video ID: {{ item.video_id }}<br>Subtitles: {{ item.subtitles }}</li>
+        {% empty %}
+        <li>No results found.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'search_subtitles' %}">Back to Search</a>
+</body>
+</html>

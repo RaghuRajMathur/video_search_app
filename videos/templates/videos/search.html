@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Subtitles</title>
+</head>
+<body>
+    <h1>Search Subtitles</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+    <a href="{% url 'video_list' %}">Back to Video List</a>
+</body>
+</html>
