@@ -49,11 +49,15 @@ CELERY_RESULT_BACKEND = 'django-db'
 AWS_ACCESS_KEY_ID = 'AKIAVRUVTI2U753CCPU3'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'videosearchbucket'
-AWS_S3_REGION_NAME = 'us-north-1'
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3-website.eu-north-1.amazonaws.com'
-AWS_DEFAULT_ACL = 'public-read'
+AWS_S3_REGION_NAME = 'eu-north-1'
+AWS_S3_CUSTOM_DOMAIN =  f'{AWS_STORAGE_BUCKET_NAME}.s3.eu-north-1.amazonaws.com'
+AWS_DEFAULT_ACL = None
 AWS_S3_FILE_OVERWRITE = False
 AWS_LOCATION = 'media'
+
+# AWS DynamoDB settings
+AWS_DYNAMODB_REGION_NAME = 'eu-north-1'
+DYNAMODB_TABLE_NAME = 'Subtitles'
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'

@@ -7,7 +7,7 @@
     <h1>Search Results for "{{ keyword }}"</h1>
     <ul>
         {% for item in items %}
-        <li>Video ID: {{ item.video_id }}<br>Subtitles: {{ item.subtitles }}</li>
+        <li>Video ID: {{ item.video_id }}<br>Description: {{ item.subtitles }}</li>
         {% empty %}
         <li>No results found.</li>
         {% endfor %}

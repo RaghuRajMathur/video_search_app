@@ -40,7 +40,11 @@
             height: auto;
             margin-bottom: 10px;
         }
-        p {
+        .subtitles {
+            margin-top: 10px;
+        }
+        .subtitles p {
+            margin: 5px 0;
             color: #555;
         }
         .upload-link {
@@ -56,6 +60,9 @@
         .upload-link:hover {
             background: #0056b3;
         }
+        .delete-form {
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -66,10 +73,12 @@
                 <li>
                     <h2>Video {{ video.id }}</h2>
                     <video controls>
-                        <source src="{{ video.s3_url }}" type="video/mp4">
+                        <source src="{{ video.file.url }}" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
-                    <p>{{ video.subtitles }}</p>
+                    <div class="subtitles">
+                        <p>{{ video.subtitles }}</p>
+                    </div>
                 </li>
             {% endfor %}
         </ul>
